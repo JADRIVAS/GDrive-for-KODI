@@ -193,7 +193,7 @@ class contentengine(object):
 			IP = s.getsockname()[0]
 			s.close()
 
-			display = xbmcgui.Dialog().ok(addon.getLocalizedString(30000), '%s [B][COLOR blue]http://%s:8011/enroll[/COLOR][/B] %s' % (addon.getLocalizedString(30210), IP, addon.getLocalizedString(30218) ) )
+			display = xbmcgui.Dialog().ok(addon.getLocalizedString(30000), '%s [B][COLOR blue]http://%s:%s/enroll[/COLOR][/B] %s' % (addon.getLocalizedString(30210), IP, self.addon.getSetting('server_port'), addon.getLocalizedString(30218) ) )
 
 			if display:
 				xbmc.executebuiltin('Container.Refresh')
@@ -400,8 +400,6 @@ class contentengine(object):
 				xbmcgui.Dialog().ok(addon.getLocalizedString(30000), addon.getLocalizedString(30208) )
 				return
 
-			driveID = self.settingsModule.getParameter('filename') #file ID
-
 			try:
 				service
 			except NameError:
@@ -409,8 +407,6 @@ class contentengine(object):
 				xbmc.log(addon.getLocalizedString(30051) + constants.PLUGIN_NAME + '-login', xbmc.LOGERROR)
 				xbmcplugin.endOfDirectory(self.plugin_handle)
 				return
-
-			resumeOption = False
 
 			if dbID:
 
@@ -470,6 +466,8 @@ class contentengine(object):
 				# else:
 					# resumePosition = 0
 
+			resumeOption = False
+
 			if resumePosition > 0:
 
 				import time
@@ -488,8 +486,9 @@ class contentengine(object):
 				elif selection == -1:
 					return
 
+			driveID = self.settingsModule.getParameter('filename') # file ID
 			driveURL = 'https://www.googleapis.com/drive/v2/files/%s?includeTeamDriveItems=true&supportsTeamDrives=true&alt=media' % driveID
-			url = 'http://localhost:' + str(service.settings.streamPort) + '/crypto_playurl'
+			url = 'http://localhost:' + str(service.settings.serverPort) + '/crypto_playurl'
 			req = urllib2.Request(url, 'instance=' + str(service.instanceName) + '&url=' + driveURL)
 
 			try:
@@ -499,7 +498,7 @@ class contentengine(object):
 				xbmc.log(self.addon.getAddonInfo('name') + ': ' + str(e), xbmc.LOGERROR)
 				return
 
-			item = xbmcgui.ListItem(path='http://localhost:' + str(service.settings.streamPort) + '/play')
+			item = xbmcgui.ListItem(path='http://localhost:' + str(service.settings.serverPort) + '/play')
 			# item.setProperty('StartPercent', str(position) )
 			# item.setProperty('startoffset', '60')
 

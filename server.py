@@ -19,7 +19,7 @@ def run():
 	PLUGIN_URL = constants.PLUGIN_NAME
 	PLUGIN_NAME = constants.PLUGIN_NAME
 
-	port = int(settings_.getSettingInt('stream_port', 8011) )
+	port = settings_.getSettingInt('server_port', 8011)
 	server = streamer.MyHTTPServer( ('', port), streamer.myStreamer)
 	server.setDetails(plugin_handle, PLUGIN_NAME, PLUGIN_URL, addon, user_agent, settings_)
 
@@ -46,7 +46,7 @@ def run():
 		# PLUGIN_URL = constants.PLUGIN_NAME
 		# PLUGIN_NAME = constants.PLUGIN_NAME
 
-		# port = int(settings_.getSettingInt('stream_port', 8011) )
+		# port = settings_.getSettingInt('server_port', 8011)
 		# server = streamer.MyHTTPServer( ('', port), streamer.myStreamer)
 		# server.setDetails(plugin_handle, PLUGIN_NAME, PLUGIN_URL, addon, user_agent, settings_)
 

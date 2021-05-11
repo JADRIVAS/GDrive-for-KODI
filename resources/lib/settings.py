@@ -131,7 +131,7 @@ class settings:
 	def __init__(self, addons):
 		self.addon = addons
 		self.username = self.getParameter('username', '')
-		self.streamPort = int(self.getSettingInt('stream_port', 8011) )
+		self.serverPort = self.getSettingInt('server_port', 8011)
 		self.movieWatchTime = self.getSetting('movie_watch_time')
 		self.tvWatchTime = self.getSetting('tv_watch_time')
 		self.cryptoPassword = self.getSetting('crypto_password')

@@ -174,14 +174,18 @@ msgid "Default Account for Playback:"
 msgstr "Default Account for Playback:"
 
 msgctxt "#30302"
-msgid "Enable Fallback Account(s) When API Banned"
-msgstr "Enable Fallback Account(s) When API Banned"
+msgid "Enable Account Fallback When API Banned"
+msgstr "Enable Account Fallback When API Banned"
 
 msgctxt "#30303"
 msgid "Fallback Account(s):"
 msgstr "Fallback Account(s):"
 
 msgctxt "#30304"
+msgid "Validate Account(s)"
+msgstr "Validate Account(s)"
+
+msgctxt "#30305"
 msgid "Delete Account(s)"
 msgstr "Delete Account(s)"
 
@@ -206,8 +210,8 @@ msgid "Server"
 msgstr "Server"
 
 msgctxt "#30405"
-msgid "Server Port:"
-msgstr "Server Port:"
+msgid "Server Port (Requires Restart):"
+msgstr "Server Port (Requires Restart):"
 
 msgctxt "#30406"
 msgid "Crypto"

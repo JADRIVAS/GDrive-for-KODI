@@ -4,17 +4,14 @@
 	<category label="30300">
 
 		<setting id="user_agent" label="30001" type="text" default="Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/532.0 (KHTML, like Gecko) Chrome/3.0.195.38 Safari/532.0" visible="false" />
-
 		<setting id="account_amount" label="30001" type="number" default="9" visible="false" />
-
 		<setting id="default_account" label="30001" type="text" default="1" visible="false" />
 		<setting id="default_account_ui" label="30301" type="action" action="RunPlugin(plugin://plugin.video.gdrive/?mode=settings_default)" />
-
 		<setting id="fallback" label="30302" type="bool" default="false" />
 		<setting id="fallback_accounts" label="30001" type="text" visible="false" />
 		<setting id="fallback_accounts_ui" label="30303" subsetting="true" type="action" action="RunPlugin(plugin://plugin.video.gdrive/?mode=fallback)" visible="eq(-2,true)" />
-		<setting id="validate_accounts" label="30021" type="action" action="RunPlugin(plugin://plugin.video.gdrive/?mode=validate)" />
-		<setting id="delete_accounts" label="30304" type="action" action="RunPlugin(plugin://plugin.video.gdrive/?mode=settings_delete)" />
+		<setting id="validate_accounts" label="30304" type="action" action="RunPlugin(plugin://plugin.video.gdrive/?mode=validate)" />
+		<setting id="delete_accounts" label="30305" type="action" action="RunPlugin(plugin://plugin.video.gdrive/?mode=settings_delete)" />
 
 	</category>
 
@@ -24,7 +21,7 @@
 		<setting id="movie_watch_time" label="30402" type="slider" default="93" option="percent" range="0,1,100" />
 		<setting id="tv_watch_time" label="30403" type="slider" default="88" option="percent" range="0,1,100" />
 		<setting label="30404" type="lsep" />
-		<setting id="stream_port" label="30405" type="number" default="8011" />
+		<setting id="server_port" label="30405" type="number" default="8011" />
 		<setting label="30406" type="lsep" />
 		<setting id="crypto_password" label="30407" type="text" />
 		<setting id="crypto_salt" label="30408" type="file" />
